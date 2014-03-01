@@ -6,16 +6,16 @@ class File_handler
   def read
     data = File.open(@file_name, "r")
     datafile = ""
-    header = data.gets
+    header = data.gets.split(",")
+    return_data = []
     while (input_line = data.gets)
-     puts input_line.strip.split(",").to_s
+     return_data << input_line.strip.split(",")
     end
     
-    puts header
+    
     data.close()
+    return header, return_data
 
   end
 end
 
-file_name = File_handler.new("/Users/j_redlinger/python_trading/reference_data/aapl.csv")
-file_name.read
