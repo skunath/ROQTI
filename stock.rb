@@ -1,4 +1,6 @@
-class Stock
+require_relative "asset.rb"
+class Stock < Asset # i've made this a subclass of asset... that may or may not be a good thing
+
   def initialize(ticker_symbol, num_shares = 0)
     @ticker_symbol = ticker_symbol
     @data_handler = DataHandler.new(self)
