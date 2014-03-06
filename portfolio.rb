@@ -4,8 +4,9 @@ class Portfolio
     @name = name
     @cash = cash
     @account = account
-    @assets = {} #stock objects
+    @assets = {} #key is ticker symbol, vals are assets objects
     @purchases = []
+    self.calc_value() #setting Profile @value via method
   end
   
   def get_assets()
@@ -38,6 +39,29 @@ class Portfolio
     for purchase in @purchases
       puts purchase.to_s
     end
+  end
+
+  def calc_value()
+    portfolio_value = 0
+    for asset in @assets.values
+        portfolio_value += asset.current_value() #all assets must implement a .current_value method
+    end
+    @value = portfolio_value
+  end
+
+  #currently using as getter, but might make
+  #more sense to freshly calculate?
+  def current_value()
+    # self.calc_value()
+    return @value
+  end
+
+  def total_returns()
+    returns = 0
+    for asset in @assets.values
+      returns += asset.current_return()
+    end
+    return returns
   end
 
 end
