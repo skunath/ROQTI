@@ -4,13 +4,51 @@ require_relative "File_Handler.rb"
 require_relative "portfolio.rb"
 
 ted = Portfolio.new("Ted")
+james = Portfolio.new("James")
 
-ted.add_stock("aapl", 100, 4750)
-ted.add_stock("pg", 50, 9600)
-ted.add_stock("bng", 100, 3800)
 
+apple = Stock.new("aapl")
+apple.refresh_data("./Test_Data/aapl.csv")
+msft = Stock.new("msft")
+msft.refresh_data("./Test_Data/msft.csv")
+
+apple.day_closing_price("2012", "01", "19")
+msft.day_closing_price("2012", "01", "19")
+
+
+puts apple.num_shares_in_brokerage()
+ted.add_asset(apple, 5, 200)
+ted.add_asset(msft, 50, 26)
+puts apple.num_shares_in_brokerage()
+
+james.add_asset(apple, 25, 200)
+james.add_asset(msft, 200, 75)
+
+puts apple.num_shares_in_brokerage()
+
+puts "Ted: #{ted.object_id}"
 ted.current_assets()
-ted.purchases_to_date()
+puts "*" * 50
+puts "James: #{james.object_id}"
+james.current_assets()
+
+puts "*" * 50
+puts "Hal, who owns Apple stocks here?"
+apple.show_security_owners()
+
+puts "*" * 50
+puts "Looking at more information about a portfolio"
+ted.current_assets()
+ted.purchase_value()
+ted.value_on_day("2012", "01", "19")
+
+
+#ted.add_stock("aapl", 100, 4750)
+#ted.add_stock("pg", 50, 9600)
+#ted.add_stock("bng", 100, 3800)
+
+#ted.current_assets()
+#ted.purchases_to_date()
 
 
 #apple = Stock.new("aapl")
