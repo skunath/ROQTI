@@ -5,7 +5,7 @@ class Brokerage
     # Use this initializer to setup a brokerage house.
     # The brokerage house will have multiple accounts so you'll need a variable to manage that
     @name = args[:name]
-    @accounts = *** # figure out how you would implement this
+    @accounts = [] # figure out how you would implement this
 
     @purchases = []
   end

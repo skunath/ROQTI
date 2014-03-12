@@ -1,5 +1,5 @@
 class Asset
-  attr_reader :quantity
+  attr_reader :quantity, :price, :security_object
   def initialize(args)
     @security_object = args[:security_object] # attach asset to a security object
     @portfolio_object = args[:portfolio_object] # attach asset to a portfolio object
@@ -20,5 +20,23 @@ class Asset
   def to_s()
     return "#{@security_object.ticker_symbol}:\t#{@quantity}"
   end
+  
+  
+  def value_on_day(year, month, day)
+    total_value = @quantity * @security_object.day_closing_price(year, month, day)
+    return total_value
+
+  end
+  
+  def purchase_value()  
+    total_value = @quantity * @price
+    return total_value
+  end
+  
+  def gain_on_day(year, month, day)
+    gainz = self.value_on_day(year, month, day) - self.purchase_value
+    return gainz
+  end
+  
 
 end

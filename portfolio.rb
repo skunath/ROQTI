@@ -52,28 +52,33 @@ class Portfolio
   end
 
   def value_on_day(year, month, day)
-    # you want to take the quantity and price of all the shares in the portfolio and add them all up
-    # MINUS the price of the stock on a particular day... So it could possibly be negative
+    total_value = 0
+    for asset in @assets
+     total_value += asset[1].value_on_day(year, month, day)
+    end
 
-    total_value # use a variable like this... set it correctly
-    for asset in ... # fill the ... in...make this loop work
-      stock_price = asset.stock_object. # finish off this line something to get the price on a given day...
-          # look at how we get the stock price on a given day in test_rig
-      total_value += # here multiple asset quantity and (purchase price - current day stock price)
+    return total_value
+    
+  end
+
+  def purchase_value()  
+    total_value = 0
+    for asset in @assets
+     total_value += asset[1].purchase_value
     end
 
     return total_value
   end
-
-  def purchase_value()
-    # you want to take the quantity and price of all the shares in the portfolio and add them all up
-
-    total_value # use a variable like this... set it correctly
-    for asset in ... # fill the ... in...make this loop work
-      total_value += # here multiple asset quantity and purchase price
+  
+  
+  def gain_on_day(year, month, day)
+    total_value = 0
+    for asset in @assets
+     total_value += asset[1].gain_on_day(year, month, day)
     end
 
     return total_value
+    
   end
 
 
