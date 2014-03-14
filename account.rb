@@ -6,7 +6,8 @@ class Account
     @brokerage = nil
 
     #Optionally initialize with existing portfolios
-    if args.key?('portfolios')
+
+    if args.key?(:portfolios)
       @portfolios = args[:portfolios]
     else
       @portfolios = []
@@ -23,6 +24,18 @@ class Account
     return returns
   end
 
+  def purchase_value()
+    purchase_value = 0
+    for portfolio in @portfolios
+      purchase_value += portfolio.purchase_value
+    end
+    return purchase_value
+  end
+
+  def add_portfolio(portfolio)
+    @portfolios << portfolio
+  end
+
   def account_value()
     value = 0
     for portfolio in @portfolios
@@ -31,4 +44,7 @@ class Account
     return value    
   end
 
+  def to_s
+    return "#{@name}: #{self.purchase_value()}"
+  end
 end

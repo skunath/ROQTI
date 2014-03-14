@@ -5,7 +5,7 @@ class Asset
     @portfolio_object = args[:portfolio_object] # attach asset to a portfolio object
     @quantity = args[:quantity]
     @price = args[:price]
-    @dividend_price = #how do i get dividend price here? put something in the attr_reader?
+    #@dividend_price = #how do i get dividend price here? put something in the attr_reader?
     
 
     @security_object.add_shares_to_brokerage(@quantity)
@@ -40,9 +40,9 @@ class Asset
     return gainz
   end
   
-  def stock_dividends()
-    total_dividends = @quatity * @dividend_price
-    return total_dividends
+  def pay_dividend(year, month, day, dividend)
+    total_dividend = @quantity * dividend
+    @portfolio_object.pay_dividend(year, month, day, total_dividend)
   end
     
   
