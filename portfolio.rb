@@ -80,6 +80,24 @@ class Portfolio
     return total_value
     
   end
+  
+  def stock_dividends()
+    total_value = 0
+    for asset in @assets
+      total_value += asset[1].stock_dividend
+    end
+    
+    return total_value
+  
+  end
+
+  def pay_dividend(year, month, day, dividend)
+    @cash += dividend
+  end
+
+  def cash_available()
+    return @cash
+  end
 
 
 end
