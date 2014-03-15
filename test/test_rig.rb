@@ -1,8 +1,7 @@
-require_relative "stock.rb"
-require_relative "data_handler.rb"
-require_relative "File_Handler.rb"
-require_relative "portfolio.rb"
-require_relative "account.rb"
+#Require all files in lib/ directory
+$LOAD_PATH.unshift(File.expand_path(File.dirname(__FILE__) + '/../lib'))
+
+require "ROQTI"
 
 ted = Portfolio.new("Ted")
 james = Portfolio.new("James")

@@ -1,7 +1,3 @@
-require_relative "asset.rb"
-require_relative "security.rb"
-
-
 class Stock < Security # i've made this a subclass of asset... that may or may not be a good thing
   def initialize(ticker_symbol, num_shares = 0)
     super(ticker_symbol, num_shares)
