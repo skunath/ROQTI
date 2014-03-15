@@ -11,8 +11,16 @@ class Brokerage
   end
 
   def add_account(account)
-    # make this a method that will take an account object and associate it with this object.
-    # also check to make sure it's not attached to another brokerage
+    @accounts << account
+  end
+
+  def purchase_value()
+    purchase_value = 0
+    for account in @accounts
+      purchase_value += account.purchase_value
+    end
+
+    return purchase_value
   end
 
   def assets_under_management()
@@ -32,9 +40,8 @@ class Brokerage
     end
   end
 
-  def print_ranked_accounts()
-    # this method should sort the accounts them by total market value and print them
-    # notice market value and total returns will n ot be the same thing
+  def print_ranked_accounts_by_purchase_value()
+    puts @accounts.sort_by {|account| account.purchase_value}
 
   end
 
