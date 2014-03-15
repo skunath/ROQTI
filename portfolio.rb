@@ -91,4 +91,13 @@ class Portfolio
   
   end
 
+  def pay_dividend(year, month, day, dividend)
+    @cash += dividend
+  end
+
+  def cash_available()
+    return @cash
+  end
+
+
 end
