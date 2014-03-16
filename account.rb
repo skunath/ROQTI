@@ -16,6 +16,12 @@ class Account
     @purchases = []
   end
 
+  def current_assets()
+    for portfolio in @portfolios
+      portfolio.current_assets
+    end
+  end
+  
   def total_returns()
     returns = 0
     for portfolio in @portfolios
@@ -32,6 +38,16 @@ class Account
     return purchase_value
   end
 
+  def gain_on_day(year, month, day)
+    total_value = 0
+    for portfolio in @portfolios
+     total_value += portfolio.gain_on_day(year, month, day)
+    end
+
+    return total_value
+    
+  end
+ 
   def add_portfolio(portfolio)
     @portfolios << portfolio
   end
@@ -47,4 +63,6 @@ class Account
   def to_s
     return "#{@name}: #{self.purchase_value()}"
   end
+  
+
 end
