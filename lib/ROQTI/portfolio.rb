@@ -42,7 +42,6 @@ class Portfolio
   def current_assets()
     for asset in @assets.keys.sort()
       puts @assets[asset]
-      puts @assets[asset].object_id
     end
   end
   
@@ -91,5 +90,14 @@ class Portfolio
     return total_value
   
   end
+
+  def pay_dividend(year, month, day, dividend)
+    @cash += dividend
+  end
+
+  def cash_available()
+    return @cash
+  end
+
 
 end

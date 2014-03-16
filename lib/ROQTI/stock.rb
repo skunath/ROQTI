@@ -17,7 +17,13 @@ class Stock < Security # i've made this a subclass of asset... that may or may n
   def to_s()
     return "#{@ticker_symbol}:\t#{@num_shares}"
   end  
-  
+
+  def pay_dividend(year, month, day, dividend)
+    for asset in @assets # assets will be like [key,value]
+      asset[1].pay_dividend(year, day, month, dividend)
+    end
+  end
+
 end
 
 

@@ -1,5 +1,5 @@
 #Require all files in lib/ directory
-$LOAD_PATH.unshift(File.expand_path(File.dirname(__FILE__) + '/../lib'))
+$LOAD_PATH.unshift(File.expand_path(File.dirname(__FILE__) + '/lib'))
 
 require "ROQTI"
 
