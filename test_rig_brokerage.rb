@@ -64,3 +64,9 @@ puts "Cash available in Andrew's account: #{andrew_1.cash_available()}"
 goog.pay_dividend(2004,12,12,10)
 puts "google just paid a dividend"
 puts "Cash available in Andrew's account: #{andrew_1.cash_available()}"
+
+
+puts "*" * 50
+puts james_brokerage.gain_on_day("2012", "01", "19")
+puts "*" * 50
+puts james_brokerage.current_assets

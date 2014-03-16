@@ -41,7 +41,6 @@ class Portfolio
   def current_assets()
     for asset in @assets.keys.sort()
       puts @assets[asset]
-      puts @assets[asset].object_id
     end
   end
   

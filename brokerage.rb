@@ -6,12 +6,17 @@ class Brokerage
     # The brokerage house will have multiple accounts so you'll need a variable to manage that
     @name = args[:name]
     @accounts = [] # figure out how you would implement this
-
     @purchases = []
   end
 
   def add_account(account)
     @accounts << account
+  end
+
+  def current_assets
+    for account in @accounts
+      account.current_assets
+    end
   end
 
   def purchase_value()
@@ -40,9 +45,21 @@ class Brokerage
     end
   end
 
+  def gain_on_day(year, month, day)
+    total_value = 0
+    for account in @accounts
+     total_value += account.gain_on_day(year, month, day)
+    end
+
+    puts "the total current value of the brokerage is: " 
+    return total_value
+    
+  end
+
   def print_ranked_accounts_by_purchase_value()
     puts @accounts.sort_by {|account| account.purchase_value}
 
   end
+
 
 end
