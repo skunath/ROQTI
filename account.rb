@@ -6,7 +6,8 @@ class Account
     @brokerage = nil
 
     #Optionally initialize with existing portfolios
-    if args.key?('portfolios')
+
+    if args.key?(:portfolios)
       @portfolios = args[:portfolios]
     else
       @portfolios = []
@@ -15,12 +16,40 @@ class Account
     @purchases = []
   end
 
+  def current_assets()
+    for portfolio in @portfolios
+      portfolio.current_assets
+    end
+  end
+  
   def total_returns()
     returns = 0
     for portfolio in @portfolios
       returns += portfolio.total_returns # notice that portfolios will have to generate their own total returns
     end
     return returns
+  end
+
+  def purchase_value()
+    purchase_value = 0
+    for portfolio in @portfolios
+      purchase_value += portfolio.purchase_value
+    end
+    return purchase_value
+  end
+
+  def gain_on_day(year, month, day)
+    total_value = 0
+    for portfolio in @portfolios
+     total_value += portfolio.gain_on_day(year, month, day)
+    end
+
+    return total_value
+    
+  end
+ 
+  def add_portfolio(portfolio)
+    @portfolios << portfolio
   end
 
   def account_value()
@@ -30,5 +59,10 @@ class Account
     end
     return value    
   end
+
+  def to_s
+    return "#{@name}: #{self.purchase_value()}"
+  end
+  
 
 end
