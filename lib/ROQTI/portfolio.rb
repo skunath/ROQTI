@@ -1,4 +1,5 @@
-require 'Date'
+require 'date'
+
 class Portfolio
   def initialize(name, cash=0, account=nil)
     @name = name
