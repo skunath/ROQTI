@@ -15,6 +15,8 @@ class InterestRates
   def self.present_value(amount_paid, periods, interest_rate)
     return amount_paid.to_f / (1 + interest_rate) ** periods
   end
+
+
 end
 
 
@@ -23,3 +25,4 @@ puts InterestRates.gross_interest_rate(75, 20)
 puts InterestRates.basic_compound_interest_rate(2000, 0.10, 2)
 puts InterestRates.effective_compound_interest_rate(0.05, 6)
 puts InterestRates.present_value(1000000, 0.25, 0.05)
+
