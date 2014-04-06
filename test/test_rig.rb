@@ -1,17 +1,15 @@
-require_relative "stock.rb"
-require_relative "data_handler.rb"
-require_relative "File_Handler.rb"
-require_relative "portfolio.rb"
-require_relative "account.rb"
+#Require all files in lib/ directory
+$LOAD_PATH.unshift(File.expand_path(File.dirname(__FILE__) + '/lib'))
 
-ted = Portfolio.new("Ted")
-james = Portfolio.new("James")
+require "ROQTI"
 
+data_dir = FileDataSource.new("./Test_Data/")
 
-apple = Stock.new("aapl")
-apple.refresh_data("./Test_Data/aapl.csv")
-msft = Stock.new("msft")
-msft.refresh_data("./Test_Data/msft.csv")
+ted = Portfolio.new(data_dir, "Ted")
+james = Portfolio.new(data_dir, "James")
+
+apple = Stock.new(data_dir, "aapl")
+msft = Stock.new(data_dir, "msft")
 
 apple.day_closing_price("2012", "01", "19")
 msft.day_closing_price("2012", "01", "19")

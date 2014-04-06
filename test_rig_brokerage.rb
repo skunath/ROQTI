@@ -1,9 +1,6 @@
-require_relative "stock.rb"
-require_relative "data_handler.rb"
-require_relative "File_Handler.rb"
-require_relative "portfolio.rb"
-require_relative "account.rb"
-require_relative "brokerage.rb"
+$LOAD_PATH.unshift(File.expand_path(File.dirname(__FILE__) + '/lib'))
+
+require "ROQTI"
 
 # 1 - create a portfolio
 ted = Portfolio.new("Ted")
@@ -64,3 +61,9 @@ puts "Cash available in Andrew's account: #{andrew_1.cash_available()}"
 goog.pay_dividend(2004,12,12,10)
 puts "google just paid a dividend"
 puts "Cash available in Andrew's account: #{andrew_1.cash_available()}"
+
+
+puts "*" * 50
+puts james_brokerage.gain_on_day("2012", "01", "19")
+puts "*" * 50
+puts james_brokerage.current_assets
