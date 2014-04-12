@@ -16,6 +16,13 @@ class InterestRates
     return amount_paid.to_f / (1 + interest_rate) ** periods
   end
 
+  def self.annualized_interest_rate 
+    #this should figure out the annualized interest rate of an investment, given the gross rate and periods of time
+  end
+
+  def self.future_balance
+    #should figure out what you will have after a certain amount of periods
+  end
 
 end
 
