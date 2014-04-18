@@ -1,4 +1,4 @@
-require '../lib/ROQTI'
+require_relative '../lib/ROQTI'
 
 #Exercise 1
 
@@ -57,7 +57,7 @@ end
 #Ex 8
 
 describe InterestRates,"#present_value" do
-  it "should return present values"
+  it "should return present values" do
     a_capital = 100000
     a_period =  1
     b_capital = 1000000

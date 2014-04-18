@@ -1,7 +1,5 @@
 require_relative '../lib/ROQTI'
 
-
-
 describe InvestmentDecisionCriteria, "#rate_of_return" do
   it "should give the rate of return" do
     current_price = 400
